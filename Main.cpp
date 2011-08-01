@@ -1,20 +1,23 @@
 #include "Main.h"
 #include "LevelGenerator.h"
 #include "Character.h"
-#include <iostream> 
+#include <iostream>
+
+#define VIEW_WIDTH 70
+#define VIEW_HEIGHT 20
 
 using namespace std;
 
 int main(int argc, char * argv[])
 {
-	char drawArray[40 * 30];
-	Level currentLevel = LevelGen::generateLevel(40, 30, 0);
+	char drawArray[VIEW_WIDTH * VIEW_HEIGHT];
+	Level currentLevel = LevelGen::generateLevel(VIEW_WIDTH, VIEW_HEIGHT, 0);
 
 	currentLevel.drawASCIIArray((char *)drawArray);
 
-	for(int i = 0; i < 30; i++)
+	for(int i = 0; i < VIEW_HEIGHT; i++)
 	{
-		for(int j = 0; j < 40; j++)
+		for(int j = 0; j < VIEW_WIDTH; j++)
 		{
 			cout << currentLevel.getTile(j, i)->getASCIIchar();
 		}
