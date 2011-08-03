@@ -57,9 +57,5 @@ int main(int argc, char * argv[])
 		}
 	}
 
-	char endChar;
-	cout << "Enter any key to quit." << endl << "> " << endl;
-	cin >> endChar;
-
 	return 0;
 };
