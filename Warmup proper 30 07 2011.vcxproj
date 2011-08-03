@@ -75,13 +75,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
-    <ClCompile Include="ConsoleInput.cpp" />
+    <ClCompile Include="Win32ConsoleIO.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
-    <ClInclude Include="ConsoleInput.h" />
+    <ClInclude Include="Win32ConsoleIO.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="Main.h" />
   </ItemGroup>

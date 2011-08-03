@@ -51,13 +51,13 @@ public:
 
 	Player * getPlayer();
 
-	/**
-	 * Adds a player character to the level at the specified
-	 * X and Y position
-	 */
-	void setPlayerCharacter(Player * player, int xPos, int yPos);
+	int getWidth();
 
-	void drawASCIIArray(char * arrayStart); 
+	int getHeight();
+
+	/** Adds a player character to the level at the specified
+	 * X and Y position */
+	void setPlayerCharacter(Player * player, int xPos, int yPos);
 };
 
 

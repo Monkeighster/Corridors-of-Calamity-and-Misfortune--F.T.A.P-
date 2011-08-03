@@ -52,18 +52,17 @@ Player * Level::getPlayer() {
 	return this->player;
 }
 
+int Level::getWidth() {
+	return this->width;
+}
+
+int Level::getHeight() {
+	return this->height;
+}
+
 void Level::setPlayerCharacter(Player * player, int xPos, int yPos) {
 	this->player = player;
 	player->setPosition(getTile(xPos, yPos));
-}
-
-void Level::drawASCIIArray(char * arrayStart) {
-	for(int i = 0; i < this->height; i++) {
-		for(int j = 0; j < this->width; j++) {
-			arrayStart[(i * this->width) + j] =
-					getTile(j, i)->getASCIIchar();
-		}
-	}
 }
 
 

@@ -24,7 +24,7 @@
     <ClCompile Include="Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleInput.cpp">
+    <ClCompile Include="Win32ConsoleIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleInput.h">
+    <ClInclude Include="Win32ConsoleIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
