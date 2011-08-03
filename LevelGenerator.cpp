@@ -10,7 +10,9 @@ Level::Level(int width, int height): width(width), height(height),
 		tiles.push_back(std::vector<Tile>());
 		std::vector<Tile> & rowVector = tiles.back();
 		for(int j = 0; j < width; j++) {
-			rowVector.push_back(Tile());
+			Tile newTile = Tile();
+			newTile.setPosition(j, i);
+			rowVector.push_back(newTile);
 		}
 	}
 
@@ -38,7 +40,21 @@ Level::~Level()
 
 Tile * Level::getTile(int width, int height)
 {
+	if(width < 0 || width >= this->width ||
+		height < 0 || height >= this->height) 
+	{
+		return NULL;
+	}
 	return &(tiles[height])[width];
+}
+
+Player * Level::getPlayer() {
+	return this->player;
+}
+
+void Level::setPlayerCharacter(Player * player, int xPos, int yPos) {
+	this->player = player;
+	player->setPosition(getTile(xPos, yPos));
 }
 
 void Level::drawASCIIArray(char * arrayStart) {
@@ -53,17 +69,34 @@ void Level::drawASCIIArray(char * arrayStart) {
 
 // ----------------- Tile Implementation ----------------- 
 
-Tile::Tile(): isPassable(false), isDoor(false)
+Tile::Tile(): isPassable(false), isDoor(false), xPos(0), yPos(0)
 {
 }
 
-Tile::Tile(bool isPassable, bool isDoor): isPassable(isPassable), isDoor(isDoor)
+Tile::Tile(bool isPassable, bool isDoor): isPassable(isPassable), isDoor(isDoor), 
+	xPos(0), yPos(0)
 {
 }
 
 void Tile::setPassable(bool passable)
 {
 	isPassable = passable;
+}
+
+void Tile::setPosition(int xPos, int yPos)
+{
+	this->xPos = xPos;
+	this->yPos = yPos;
+}
+
+int Tile::xPosition()
+{
+	return xPos;
+}
+
+int Tile::yPosition()
+{
+	return yPos;
 }
 
 char Tile::getASCIIchar()
@@ -84,6 +117,10 @@ char Tile::getASCIIchar()
 	{
 		return 'D';
 	}
+}
+
+bool Tile::passable() {
+	return this->isPassable;
 }
 
 

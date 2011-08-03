@@ -11,14 +11,26 @@ private:
 
 	bool isDoor;
 
+	/** X (width) and Y (height) position of the tile in its level */
+	int xPos;
+	int yPos;
+
 public:
 	Tile();
 	
 	Tile(bool isPassable, bool isDoor);
 
+	void setPosition(int xPos, int yPos);
+
+	int xPosition();
+
+	int yPosition();
+
 	char getASCIIchar();
 
 	void setPassable(bool passable);
+
+	bool passable();
 };
 
 
@@ -36,6 +48,14 @@ public:
 	~Level();	
 
 	Tile  * getTile(int width,int height);
+
+	Player * getPlayer();
+
+	/**
+	 * Adds a player character to the level at the specified
+	 * X and Y position
+	 */
+	void setPlayerCharacter(Player * player, int xPos, int yPos);
 
 	void drawASCIIArray(char * arrayStart); 
 };
