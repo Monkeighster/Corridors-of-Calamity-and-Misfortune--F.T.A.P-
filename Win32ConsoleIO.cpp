@@ -122,6 +122,9 @@ void Win32ConsoleIO::drawLevel(Level * gameLevel) {
 			}
 		}
 	}
+
+	// Set the console back to black and white
+	SetConsoleTextAttribute(stdOutHandle, COLOR_WHITE + (16 * COLOR_BLACK));
 }
 
 void Win32ConsoleIO::forceFullRedraw() {

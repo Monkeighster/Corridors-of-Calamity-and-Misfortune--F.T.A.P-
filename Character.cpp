@@ -6,11 +6,13 @@ Character::Character(int maxHp, Tile * startPosition) :
 {
 }
 
-void Character::setPosition(Tile * position) {
+void Character::setPosition(Tile * position) 
+{
 	this->position = position;
 }
 
-Tile * Character::getPosition() {
+Tile * Character::getPosition() const
+{
 	return this->position;
 }
 

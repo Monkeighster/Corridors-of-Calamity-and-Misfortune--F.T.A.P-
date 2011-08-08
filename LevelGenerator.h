@@ -27,19 +27,19 @@ public:
 
 	void setPosition(int xPos, int yPos);
 
-	int xPosition();
+	int xPosition() const;
 
-	int yPosition();
+	int yPosition() const;
 
-	char getASCIIchar();
+	char getASCIIchar() const;
 
 	void setPassable(bool passable);
 
 	void setDoor(bool door);
 
-	bool passable();
+	bool passable() const;
 
-	bool door();
+	bool door() const;
 };
 
 class Level
@@ -55,13 +55,13 @@ public:
 	
 	~Level();	
 
-	Tile  * getTile(int width,int height);
+	Tile  * getTile(int width, int height);
 
-	Player * getPlayer();
+	Player * getPlayer() const;
 
-	int getWidth();
+	int getWidth() const;
 
-	int getHeight();
+	int getHeight() const;
 
 	/** Adds a player character to the level at the specified
 	 * X and Y position */

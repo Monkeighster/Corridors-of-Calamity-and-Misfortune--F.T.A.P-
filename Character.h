@@ -18,7 +18,7 @@ public:
 
 	/** @return A reference to the character's current position (or NULL
 	 * if no position is set) */
-	Tile * getPosition();
+	Tile * getPosition() const;
 };
 
 

@@ -28,17 +28,17 @@ void Tile::setPosition(int xPos, int yPos)
 	this->yPos = yPos;
 }
 
-int Tile::xPosition()
+int Tile::xPosition() const
 {
 	return xPos;
 }
 
-int Tile::yPosition()
+int Tile::yPosition() const
 {
 	return yPos;
 }
 
-char Tile::getASCIIchar()
+char Tile::getASCIIchar() const
 {
 	if(!isPassable && !isDoor) 
 	{
@@ -58,11 +58,13 @@ char Tile::getASCIIchar()
 	}
 }
 
-bool Tile::passable() {
+bool Tile::passable() const 
+{
 	return this->isPassable;
 }
 
-bool Tile::door() {
+bool Tile::door() const 
+{
 	return this->isDoor;
 }
 
@@ -102,15 +104,18 @@ Tile * Level::getTile(int width, int height)
 	return &(tiles[height])[width];
 }
 
-Player * Level::getPlayer() {
+Player * Level::getPlayer() const
+{
 	return this->player;
 }
 
-int Level::getWidth() {
+int Level::getWidth() const
+{
 	return this->width;
 }
 
-int Level::getHeight() {
+int Level::getHeight() const
+{
 	return this->height;
 }
 
@@ -226,7 +231,8 @@ void Level::randomizeLevel(int minRoomSize, int roomVariance) {
 	}
 }
 
-bool Level::isRectEmpty(int cornerX, int cornerY, int width, int height) {
+bool Level::isRectEmpty(int cornerX, int cornerY, int width, int height)
+{
 	if(cornerX < 0 || cornerX + width > this->width ||
 		cornerY < 0 || cornerY + height > this->height) {
 			return false;
