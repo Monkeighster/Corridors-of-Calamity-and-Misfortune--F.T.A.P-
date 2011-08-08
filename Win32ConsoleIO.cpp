@@ -58,7 +58,7 @@ Win32ConsoleIO::Win32ConsoleIO(int consoleWidth, int consoleHeight) :
 int Win32ConsoleIO::getNextKeypress() 
 {
 	int keyVal = getch();
-	if(keyVal = ARROW_CONSTANT) {
+	if(keyVal == ARROW_CONSTANT) {
 		keyVal = keyVal + getch();
 	}
 	return keyVal;
@@ -78,7 +78,10 @@ void Win32ConsoleIO::drawLevel(Level * gameLevel) {
 				// based on the tile type and contents 
 				// (just hardcode it for pretty output for now)
 				consoleChars[j][i].setForegroundColor(COLOR_WHITE);
-				if(curTile->passable()) {
+				if(curTile->door() && !curTile->passable()) {
+					consoleChars[j][i].setForegroundColor(COLOR_GREY);
+					consoleChars[j][i].setBackgroundColor(COLOR_BROWN);
+				} else if(curTile->passable()) {
 					consoleChars[j][i].setForegroundColor(COLOR_WHITE);
 					consoleChars[j][i].setBackgroundColor(COLOR_BLACK);
 				} else {
@@ -117,6 +120,14 @@ void Win32ConsoleIO::drawLevel(Level * gameLevel) {
 				DWORD nWritten; // Characters written
 				WriteConsole(stdOutHandle, writeChar, 1, &nWritten, NULL );
 			}
+		}
+	}
+}
+
+void Win32ConsoleIO::forceFullRedraw() {
+	for(int i = 0; i < width; i++) {
+		for(int j = 0; j < height; j++) {
+			changedFlags[j][i] = true;
 		}
 	}
 }

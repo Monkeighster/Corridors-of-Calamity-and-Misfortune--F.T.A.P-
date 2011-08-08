@@ -4,6 +4,11 @@
 #include "Character.h"
 #include <vector>
 
+const static int DIR_NORTH = 0;
+const static int DIR_EAST = 1;
+const static int DIR_SOUTH = 2;
+const static int DIR_WEST = 3;
+
 class Tile
 {
 private:
@@ -30,9 +35,12 @@ public:
 
 	void setPassable(bool passable);
 
-	bool passable();
-};
+	void setDoor(bool door);
 
+	bool passable();
+
+	bool door();
+};
 
 class Level
 {
@@ -58,6 +66,15 @@ public:
 	/** Adds a player character to the level at the specified
 	 * X and Y position */
 	void setPlayerCharacter(Player * player, int xPos, int yPos);
+
+	void randomizeLevel(int minRoomSize, int roomVariance);
+
+	/**
+	 * @return True if the rectangle of the level starting at the specified
+	 * top left corner with the specified width or height is composed entirely
+	 * of impassable tiles.
+	 */
+	bool isRectEmpty(int cornerX, int cornerY, int width, int height);
 };
 
 

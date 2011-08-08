@@ -8,6 +8,7 @@
 
 /** Platform specific key constants */
 const static int ARROW_CONSTANT = 224;
+const static int KEY_R = 114;
 const static int KEY_ESCAPE = 251;
 const static int KEY_LEFT_ARROW = ARROW_CONSTANT + 75;
 const static int KEY_RIGHT_ARROW = ARROW_CONSTANT + 77;
@@ -18,8 +19,17 @@ const static int KEY_DOWN_ARROW = ARROW_CONSTANT + 80;
 const static int COLOR_BLACK = 0;
 const static int COLOR_BLUE = 1;
 const static int COLOR_GREEN = 2;
+const static int COLOR_CYAN = 3;
 const static int COLOR_RED = 4;
+const static int COLOR_VIOLET = 5;
+const static int COLOR_BROWN = 6;
+const static int COLOR_GREY = 7;
+const static int COLOR_LIGHT_GREY = 8;
+const static int COLOR_LIGHT_BLUE = 9;
+const static int COLOR_LIGHT_GREEN = 10;
+const static int COLOR_LIGHT_CYAN = 11;
 const static int COLOR_LIGHT_RED = 12;
+const static int COLOR_PINK = 13;
 const static int COLOR_YELLOW = 14;
 const static int COLOR_WHITE = 15;
 
@@ -62,6 +72,8 @@ public:
 
 	/** Draws the passed level to the console */
 	void drawLevel(Level * gameLevel);
+
+	void forceFullRedraw();
 };
 
 #endif
